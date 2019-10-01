@@ -1,0 +1,171 @@
+\documentclass[12pt]{beamer}
+\usepackage[UTF8]{ctex} % 中文支持
+% \usepackage{listings} % insert code
+% \usetheme{Malmoe}
+% \usetheme{warsaw}
+% \usetheme{Berlin}
+% \usetheme{Boadilla}
+\usetheme{Madrid}
+
+% \usecolortheme{seagull}%灰色主题
+% \usecolortheme{wolverine}%淡黄色主题
+% \usecolortheme{crane}%深黄色主题
+% \usecolortheme{beaver}%深红色字体
+
+
+\setbeamertemplate{navigation symbols}{}
+
+% \title[Title]{题目}
+\title{题目}
+\subtitle{Title}
+\author[Name]{
+姓名 \\
+指导老师: 姓名
+}
+\date{\today}
+\institute[Zhejiang University]{
+浙江大学 \\
+\medskip
+\textit{email@zju.edu.cn}
+}
+% \titlegraphic{
+% 	\includegraphics[width=0.2\textwidth]{./pic/QSY.eps}
+% }
+
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle{%
+\oldmacro\hfill%
+\insertframenumber\,/\,\inserttotalframenumber}
+\usefonttheme{professionalfonts}
+
+\begin{document}
+
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{目录}
+\tableofcontents
+\end{frame}
+
+\section{First Section}
+
+\begin{frame}{一级标题}
+	\begin{itemize}
+		\item 二级标题1
+		\begin{itemize}
+			\item 三级标题1
+			\item 三级标题2
+			\[e^{\pi i}=-1\]
+		\end{itemize}
+		\item 二级标题2
+	\end{itemize}
+\end{frame}
+
+\subsection{Subsection Example}
+\begin{frame}{Test slide 2}
+	\begin{itemize}
+		\item Point 3
+		\begin{itemize}
+			\item Point 3.1
+			\item Point 3.2
+		\end{itemize}
+	\end{itemize}
+\subsection{Subsection Example}
+	\begin{enumerate}
+		\item The first item
+		\item The second item
+		\item The third item
+		\item The fourth item
+	\end{enumerate}
+\end{frame}
+\section{Second Section}
+\begin{frame}{Only title}
+	\begin{enumerate}
+		\item 有序列表1
+		\item 有序列表2
+		\begin{enumerate}
+			\item 有序列表3.1
+			\item 有序列表3.2
+		\end{enumerate}
+	\end{enumerate}
+
+	\begin{description}
+		\item[First Item] Description of first item
+		\item[Second Item] Description of second item
+		\item[Third Item] Description of third item
+		\item[Forth Item] Description of forth item
+	\end{description}
+
+\end{frame}
+\subsection{Subsection Example}
+\begin{frame}{Only title}
+\textbf{Sample Text}Sample Text\par
+\textsl{Sample Text}Sample Text\par
+\alert{Sample Text}Sample Text\par
+\textrm{Sample Text}Sample Text\par
+\textsf{Sample Text}Sample Text\par
+\textcolor{green}{Sample Text}Sample Text\par
+\structure{Sample Text}Sample Text\par
+\end{frame}
+\subsection{Subsection Example}
+\begin{frame}{Only title}
+	\begin{proof}
+		$\frac{1}{2}=0.5$
+	\end{proof}
+
+	\begin{example}
+		$\frac{1}{2}=0.5$
+	\end{example}
+
+	\begin{block}{Block}
+		hhahahah
+	\end{block}
+\end{frame}
+
+\section{Third Section}
+\begin{frame}{Only title}
+	\begin{alertblock}{Shit}
+		hahah
+	\end{alertblock}
+
+	\begin{corollary}{corollary}
+		hahah
+	\end{corollary}
+	
+	\begin{lemma}{lemma}
+		hahah
+	\end{lemma}
+\end{frame}
+
+\subsection{Subsection Example}
+\begin{frame}{Only title}
+	\begin{table}[tb]
+	\centering
+	\caption{Caption here\label{tab1}}
+		\begin{tabular}{l|cc} \hline
+			\textbf{column 1} & \textbf{column 2} & \textbf{column 3} \\ \hline
+			Hello & Beamer & NAN \\ \hline
+			$\alpha+\beta$ & $\gamma+\eta$ & 34\% \\ \hline
+		\end{tabular}
+	\end{table}
+
+	\begin{figure}[tb]
+		\centering
+		\includegraphics[width=0.1\textwidth]{./pic/1.jpg}
+		\caption{Caption here\label{fig1}}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\Huge{
+	\centerline{
+		感谢各位老师聆听和指导！
+	}
+}
+\end{frame}
+
+\end{document}

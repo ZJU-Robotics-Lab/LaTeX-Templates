@@ -1,0 +1,191 @@
+﻿\documentclass{myart}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{colortbl}
+
+\begin{document}
+\renewcommand\figurename{Fig}
+\thispagestyle{empty}
+\newpage
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\begin{center}
+\huge SOLUTION
+\end{center}
+
+\begin{center}
+\large Author:Name \qquad Student ID:21*****
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Problem 1}
+First, use the bilineartransformation maps:
+\begin{equation}
+z=\frac{1+s}{1-s}
+\end{equation}
+\qquad We can get
+\begin{equation}
+(\frac{15}{4}-K)s^2+\frac{1}{2}s+(K-\frac{1}{4})=0
+\end{equation}
+\qquad Then, use Routh-Hurwitz criterion
+\begin{equation}
+\begin{aligned}
+s^2& \qquad &\frac{15}{4}-K \qquad &K-\frac{1}{4}\\
+s&   \qquad &\frac{1}{2}    \qquad &\\
+1&   \qquad &K-\frac{1}{4}  \qquad &
+\end{aligned}
+\end{equation}
+\qquad If the system is stable, it needs to meet the following conditions at the same time
+\begin{equation}
+\left.
+\begin{cases}
+\frac{15}{4}>0\\
+K-\frac{1}{4}>0
+\end{cases}
+\right.
+\end{equation}
+\qquad So, the range of K is
+\begin{equation}
+\frac{1}{4}<K<\frac{15}{4}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Problem 2}
+\subsection{(a)}
+\begin{equation}
+\begin{split}
+G(z)&=(1-z^{-1})\cdot Z[\frac{1}{s}\cdot \frac{5}{s(s+1)}] \\
+&=(1-z^{-1})\cdot Z[5(\frac{1}{s^2}-\frac{1}{s}+\frac{1}{s+1})] \\
+&=\frac{5[(T-1+e^{-T})z+(1-e^{-T}-Te^{-T})]}{(z-1)(z-e^{-T})}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+T(z)&=\frac{G(z)}{1+GH(z)}\\
+&=\frac{G(z)}{1+G(z)}\\
+&=\frac{5[(T-1+e^{-T})z+(1-e^{-T}-Te^{-T})]}{(z-1)(z-e^{-T})+5[(T-1+e^{-T})z+(1-e^{-T}-Te^{-T})]}
+\end{split}
+\end{equation}
+
+\subsection{(b)}
+Let $a=T-1+e^{-T}$, and $b=1-e^{-T}-Te^{-T}$, then
+\begin{equation}
+T(z)=\frac{5az+5b}{(z-1)(z-e^{-T})+5az+5b}
+\end{equation}
+\qquad The characteristic equation of this system is
+\begin{equation}
+(z-1)(z-e^{-T})+5az+5b=0
+\end{equation}
+\qquad When T=0.1s, $a=0.1-1+e^{-0.1}\approx 0.0048$, $b=1-e^{-0.1}-0.1e^{-0.1}\approx 0.0047$.\par
+The characteristic equation is
+\begin{equation}
+z^2-1.88z+0.93=0
+\end{equation}
+\qquad Use Jury's stability criterion
+\begin{equation}
+\begin{tabular}{p{1cm} p{2cm} p{2cm} p{2cm}}
+   &       1&  -1.88& 0.93\\
+ -)&    0.93&  -1.88&    1\\
+\hline
+   &   \cellcolor[rgb]{.99,.3,.3}0.135& -0.132&    0\\
+ -)&  -0.132&  0.135&    \\
+ \hline
+   & \cellcolor[rgb]{.99,.3,.3}0.00593&      0&     \\
+\end{tabular}
+\end{equation}
+\qquad So the system is STABLE when T=0.1s.
+
+\subsection{(c)}
+Similarly, when T=1s, $a=1-1+e^{-1}\approx 0.368$, $b=1-e^{-1}-e^{-1}\approx 0.264$.\par
+The characteristic equation is
+\begin{equation}
+z^2+0.47z+1.69=0
+\end{equation}
+\qquad Use Jury's stability criterion
+\begin{equation}
+\begin{tabular}{p{1cm} p{2cm} p{2cm} p{2cm}}
+   &       1&   0.47& 1.69\\
+ -)&    1.69&   0.47&    1\\
+\hline
+   &   \cellcolor[rgb]{.99,.3,.3}-1.86& -0.324&    0\\
+\end{tabular}
+\end{equation}
+\qquad So the system is UNSTABLE when T=1s.
+
+\subsection{(d)}
+The stability of the discrete system is related to the sampling period. If the sampling period is too long, a stable system may not be stable anymore.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Problem 3}
+\subsection{(a)}
+Use Matlab to solve this problem.
+\lstinputlisting[language=Matlab]{./code/p3.m}
+\qquad Root locus:
+\midpic{1.eps}{Root Locus}
+
+\newpage
+\subsection{(b)}
+From Figure 2 and Figure 3, we can get that, the root locus and the real axis has three intersections when $K=47.2$ or $K=1.92$ or $K=9.57\times 10^{-5}$. However, when the two real poles break away from the real axis, $K=9.57\times 10^{-5}$, and split point coordinates is $(0.998,0)$.
+\doublepic{2.eps}{$K=47.2$}{3.eps}{$K=1.92$ and $K=9.57\times 10^{-5}$}
+
+\subsection{(c)}
+The closed-loop system's characteristic equation is
+\begin{equation}
+z^4+(K-3.7123)z^3+(10.3614K+5.1644)z^2+(9.7585K-3.195)z+0.8353K+0.7408=0
+\end{equation}
+\qquad From the root locus we can know that the root locus and the unit circle have only two intersections, and these two intersections are actually a complex conjugate pole pair. So we suppose the intersections of the root locus and the unit circle are$ z_1=e^{j\omega},z_2=e^{-j\omega} $. Substitute it into the original equation (14), we can get the solution:
+\begin{equation}
+\left.
+\begin{cases}
+\omega &=-0.000000001295873\\
+K &=0.956515005888313
+\end{cases}
+\right.
+\end{equation}
+\qquad Thus, the maximum $K$ for stability is $0.956515005888313$.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Problem 4}
+Use Matlab to solve this problem.
+\lstinputlisting[language=Matlab]{./code/p4.m}
+\qquad We can get a bode diagram as shown in Figure 4.
+\maxpic{4.eps}{Bode Diagram}
+\newpage
+I find the following equivalent digital controllers:
+
+Use forward difference:
+\begin{equation}
+C(z)=\frac{z+9}{z+59}
+\end{equation}
+
+Use backward difference:
+\begin{equation}
+C(z)=\frac{11z-1}{61z-1}
+\end{equation}
+
+Use FOH:
+\begin{equation}
+C(z)=\frac{0.1806z-0.01389}{z-8.757\times 10^{-27}}
+\end{equation}
+
+Use tustin's approximation:
+\begin{equation}
+C(z)=\frac{0.1935z+0.129}{z+0.9355}
+\end{equation}
+
+Use tustin's approximation with frequency prewarping. And I choose the critical frequency $W_c = 2.4 rad/s $:
+\begin{equation}
+C(z)=\frac{0.1794z+0.1488}{z+0.9694}
+\end{equation}
+
+Use matched pole-zero method:
+\begin{equation}
+C(z)=\frac{0.1667z-7.567\times 10^{-6}}{z-8.757\times 10^{-27}}
+\end{equation}
+
+
+\end{document}
